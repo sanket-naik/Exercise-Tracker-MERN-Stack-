@@ -16,7 +16,8 @@ function EditExcrcises({match}) {
 
 
     useEffect(() => {
-        axios.get('http://localhost:5000/exercises/'+match.params.id)
+        const id=match.params.id;
+        axios.get('http://localhost:5000/exercises/'+id)
             .then((res)=>(
                 setExercises({
                 username:res.data.username,
@@ -28,7 +29,7 @@ function EditExcrcises({match}) {
             .catch((err)=>{
                 console.log(err)
             })
-    },[])
+    },[match.params.id])
 
     const handleChange=(e)=>{
         const{name, value}=e.target
@@ -66,7 +67,8 @@ function EditExcrcises({match}) {
                     placeholder="Username"
                     value={Exercises.username}
                     onChange={handleChange}
-                    disabled={disabled}/>
+                    disabled={disabled}
+                    required/>
                 <small id="nameHelp" className="form-text text-muted">We'll never share your name with anyone else.</small>
             </div>
             <div className="form-group">
@@ -77,7 +79,8 @@ function EditExcrcises({match}) {
                     className="form-control"  
                     placeholder="Description"
                     value={Exercises.description}
-                    onChange={handleChange}/>
+                    onChange={handleChange}
+                    required/>
             </div>
             <div className="form-group">
                 <label>Duration (in minutes)</label>
@@ -87,7 +90,8 @@ function EditExcrcises({match}) {
                     className="form-control"  
                     placeholder="Duration"
                     value={Exercises.duration}
-                    onChange={handleChange}/>
+                    onChange={handleChange}
+                    required/>
             </div>
             <div className="form-group">
                 <label>Date</label>

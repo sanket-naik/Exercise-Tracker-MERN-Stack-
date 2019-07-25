@@ -1,6 +1,7 @@
 const router =require('express').Router()
 //IMPORTING THE SCHEMA
 let Exercise=require('../models/exercise.model')
+const {exercisesValidation}=require('../validation')
 
 //GET REQUEST RETURNS ALL THE EXERCISE FROM DB
 router.get('/',(req,res)=>{
@@ -10,7 +11,14 @@ router.get('/',(req,res)=>{
 }); 
 
 //POST REQUEST WILL ADD THE NEW POST TO DB
-router.post('/add',(req,res)=>{
+router.post('/add', async(req,res)=>{
+    //VALIDATION
+    const{error}=exercisesValidation(req.body)
+    if(error) return res.status(400).send(error.details[0].message)
+    //VALIDATE USERNAME EXIST
+    const existUsername=await Exercise.findOne({username:req.body.username})
+    if(!existUsername) return res.status(400).send("Username dosn't exist...Bad request")
+
     //PARSING FROM BODY
     const username=req.body.username;
     const description=req.body.description;
@@ -37,13 +45,6 @@ router.get('/:id',(req,res)=>{
 })
 
 //DELETING BASED ON ID
-router.delete('/:id',(req,res)=>{
-    Exercise.findByIdAndDelete(req.params.id)
-        .then(()=>res.json('Exercise deleted!!'))
-        .catch(err=>res.status(400).json("Error: "+err));
-})
-
-//UPDATE THE DATA BASED ON ID
 router.delete('/:id',(req,res)=>{
     Exercise.findByIdAndDelete(req.params.id)
         .then(()=>res.json('Exercise deleted!!'))

@@ -9,7 +9,7 @@ function Delete({exercise, onDelete}) {
   
     return (
       <>
-        <a href="#"  onClick={handleShow}>delete</a>
+        <a href="/#"  onClick={handleShow}>delete</a>
   
         <Modal show={show} onHide={handleClose}>
           <Modal.Header closeButton>

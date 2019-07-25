@@ -34,7 +34,8 @@ const onSubmit=(e)=>{
                 className="form-control"  
                 placeholder="Username"
                 value={User.username}
-                onChange={handleChange}/>
+                onChange={handleChange}
+                required/>
             <small id="nameHelp" className="form-text text-muted">We'll never share your name with anyone else.</small>
         </div>
         

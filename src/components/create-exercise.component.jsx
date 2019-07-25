@@ -46,7 +46,8 @@ function CreateExcrcises() {
         }
         axios.post('http://localhost:5000/exercises/add', exercises)
             .then((res)=>console.log(res))
-        window.location='/';
+            .catch((err)=>console.log("Error is: "+err))
+         window.location='/';
     }
 
     return(
@@ -80,7 +81,8 @@ function CreateExcrcises() {
                     className="form-control"  
                     placeholder="Description"
                     value={Exercises.description}
-                    onChange={handleChange}/>
+                    onChange={handleChange} 
+                    required/>
             </div>
             <div className="form-group">
                 <label>Duration (in minutes)</label>
@@ -90,7 +92,8 @@ function CreateExcrcises() {
                     className="form-control"  
                     placeholder="Duration"
                     value={Exercises.duration}
-                    onChange={handleChange}/>
+                    onChange={handleChange}
+                    required/>
             </div>
             <div className="form-group">
                 <label>Date</label>
