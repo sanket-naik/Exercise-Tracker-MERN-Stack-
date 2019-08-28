@@ -15,7 +15,7 @@ const handleChange=(e)=>{
 const onSubmit=(e)=>{
     e.preventDefault();
     console.log(User)
-    axios.post('http://localhost:5000/users/add', User)
+    axios.post('https://exercise-tracker-endpoints.herokuapp.com/users/add', User)
         .then((res)=>console.log(res))
 
     setUser({username:''})

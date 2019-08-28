@@ -15,7 +15,7 @@ function CreateExcrcises() {
 
     useEffect(() => {
         const choices=['-----Select User-----']
-        axios.get('http://localhost:5000/users')
+        axios.get('https://exercise-tracker-endpoints.herokuapp.com/users')
             .then((res)=>{
                 if(res.data.length>0){
                      res.data.map((obj)=>(
@@ -44,7 +44,7 @@ function CreateExcrcises() {
             duration:Exercises.duration,
             date:Exercises.date,
         }
-        axios.post('http://localhost:5000/exercises/add', exercises)
+        axios.post('https://exercise-tracker-endpoints.herokuapp.com/exercises/add', exercises)
             .then((res)=>console.log(res))
             .catch((err)=>console.log("Error is: "+err))
          window.location='/';

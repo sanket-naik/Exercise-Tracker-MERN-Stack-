@@ -7,7 +7,7 @@ function ExcrcisesList() {
     const [exercises, setexercises] = useState([])
 
     useEffect(() => {
-        axios.get('http://localhost:5000/exercises/')
+        axios.get('https://exercise-tracker-endpoints.herokuapp.com/exercises/')
             .then((res)=>{
                   setexercises(res.data)
             })
@@ -18,7 +18,7 @@ function ExcrcisesList() {
 
 
     function deleteExercise(id){
-        axios.delete('http://localhost:5000/exercises/'+id)
+        axios.delete('https://exercise-tracker-endpoints.herokuapp.com/exercises/'+id)
         .then((res)=>{
               console.log(res.data)
         })

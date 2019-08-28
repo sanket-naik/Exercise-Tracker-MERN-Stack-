@@ -17,7 +17,7 @@ function EditExcrcises({match}) {
 
     useEffect(() => {
         const id=match.params.id;
-        axios.get('http://localhost:5000/exercises/'+id)
+        axios.get('https://exercise-tracker-endpoints.herokuapp.com/exercises/'+id)
             .then((res)=>(
                 setExercises({
                 username:res.data.username,
@@ -49,7 +49,7 @@ function EditExcrcises({match}) {
             duration:Exercises.duration,
             date:Exercises.date,
         }
-        axios.patch('http://localhost:5000/exercises/update/'+match.params.id, exercises)
+        axios.patch('https://exercise-tracker-endpoints.herokuapp.com/exercises/update/'+match.params.id, exercises)
             .then((res)=>console.log(res))
         window.location='/';
     }
