@@ -1,10 +1,10 @@
 
 
-This project is deployed @ [ebuy.netlify.com](https://ebuy.netlify.com/).
+This project is deployed @ [exercise-track.netlify.com](https://exercise-track.netlify.com).
 
 ## Available Demo
 
-Click @[here](https://ebuy.netlify.com/)
+Click @[here](https://exercise-track.netlify.com)
 
 ### `Backend API`
 
