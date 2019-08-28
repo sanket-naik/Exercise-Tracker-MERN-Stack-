@@ -1,5 +1,5 @@
-//IMPORTING EXPRESS FOR ROUTES
-const express =require('express')
+const express = require('express')
+const path = require('path')
 //CROSS ORIGIN RESOURCE SHARING
 const cors=require('cors')
 //MONGOOSE FOR DB
@@ -21,8 +21,14 @@ const port=process.env.PORT || 5000;
     //BODY PARSER ON POST
     app.use(express.json());
     //ADDING THE ROUTES
+    app.get('/', (req, res) => res.render('pages/index'))
     app.use('/exercises', exercisesRouter)
     app.use('/users',usersRouter)
+    //ADDING PATH FOR TEMPLATE ENGIN
+    app.use(express.static(path.join(__dirname, 'public')))
+    app.set('views', path.join(__dirname, 'views'))
+    app.set('view engine', 'ejs')
+    
 
 //DB CONNECT
 const uri=process.env.MONGO_CONNECT_URL;

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <% include ../partials/header.ejs %>
+</head>
+
+<body>
+
+  <% include ../partials/nav.ejs %>
+
+<div class="jumbotron text-center">
+  <div class="container">
+    <a href="/" class="lang-logo">
+      <img src="/lang-logo.png">
+    </a>
+    <h1>Restfull Avilable API Endpoints</h1> </div>
+</div>
+<div class="container">
+  <div class="alert alert-info text-center" role="alert">
+    This backend is created using nodejs and mongodb and deployed in heroku server!. Use <b>Postman</b> for post/patch. No auth header, its public.
+  </div>
+  <hr>
+  <div class="row" style="margin-bottom: 40px">
+    <div >
+      <h3><span class="glyphicon glyphicon-link"></span>Exercise Endpoints</h3>
+      <ul>
+        <li><code>Operation GET : <a href="https://exercise-tracker-endpoints.herokuapp.com/exercises">/exercises</a></code> - List of exercises</li>
+        <li><code>Operation GET : <a href="https://exercise-tracker-endpoints.herokuapp.com/exercises/id-here">/exercises/id-here</a></code> - Exercise by id</li>
+        <li><code>Operation POST :<a href="https://exercise-tracker-endpoints.herokuapp.com/exercises/add">/exercises/add</a></code> - Add new exercise to the list</li>
+        <li><code>Operation DELETE :<a href="https://exercise-tracker-endpoints.herokuapp.com/exercises/id-here">/exercises/id-here</a></code> - Delete an excecise from list</li>
+        <li><code>Operation PATCH :<a href="https://exercise-tracker-endpoints.herokuapp.com/update/id-here">/update/id-here</a></code> - Update an excecise from list</li>
+      </ul>
+    </div>
+    <div >
+      <h3><span class="glyphicon glyphicon-link"></span>Users Endpoints</h3>
+      <ul>
+        <li><code>Operation GET : <a href="https://exercise-tracker-endpoints.herokuapp.com/users">/users</a></code> - List of users</li>
+        <li><code>Operation POST :<a href="https://exercise-tracker-endpoints.herokuapp.com/add">/users/add</a></code> - Add new user to the list</li>
+       </ul>
+    </div>
+    <h3><span class="glyphicon glyphicon-link"> </span>Items Sample JSON</h3>
+  
+     <code>  Exercise :{<br>  
+      &nbsp;&nbsp;&nbsp;"_id": "5d32e1f01b84f644b84e4840",<br>
+      &nbsp;&nbsp;&nbsp;"username": "sanket",<br>
+      &nbsp;&nbsp;&nbsp;"description": "Gaming",<br>
+      &nbsp;&nbsp;&nbsp;"duration": 30,<br>
+      &nbsp;&nbsp;&nbsp;"date": "2019-07-20T10:33:53.030Z",
+      <br>}</code>
+      <br><br>
+      <code>  Users :{<br>&nbsp;&nbsp;&nbsp;"inCart": false,<br>
+        &nbsp;&nbsp;&nbsp;"_id": "5d32e1f01b84f644b84e4840",<br>
+        &nbsp;&nbsp;&nbsp;"username": "sanket",
+        <br>}</code>
+  </div>
+</div>
+
+
+</body>
+</html>
